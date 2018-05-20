@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "menu.h"
 #include <iostream>
-
+#include "Prim.h"
 
 
 void menu::mainMenu()
@@ -39,7 +39,7 @@ void menu::mainMenu()
 			_graph->loadFromFile(fname+".txt", directed);
 			break;
 		case 3:
-			std::cout << "1. Listowo \n2. Macierzowo" <<std::endl;
+			std::cout << "1. Listowo \n2. Macierzowo" << std::endl;
 			std::cin >> decision;
 			switch (decision)
 			{
@@ -53,8 +53,23 @@ void menu::mainMenu()
 				std::cout << "zly wybor xD";
 				break;
 			}
+			
 			break;
 		case 4:
+			std::cout << "1. Listowo \n2. Macierzowo" << std::endl;
+			std::cin >> decision;
+			switch (decision)
+			{
+			case 1:
+				Prim::PrimSerch_List(_graph);
+				break;
+			case 2:
+				Prim::PrimSerch_Matrix(_graph);
+				break;
+			default:
+				std::cout << "zly wybor xD";
+				break;
+			}
 			break;
 		case 5:
 			break;

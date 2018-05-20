@@ -57,7 +57,7 @@ bool Graph::loadFromFile(std::string fileName, bool isDirected)
 		{
 			for (int j = 0; j < edgeAmount; j++)
 			{
-				_graphMatrix[i][j] = INT_MAX;	//wypelniam macierz nieskonczonoscia
+				_graphMatrix[i][j] = 0;	//wypelniam macierz nieskonczonoscia
 											
 			}
 		}
@@ -174,7 +174,7 @@ void Graph::printMatrix()
 		std::cout << i << std::setw(3) << "|";
 		for (int j = 0; j < edgeAmount; j++)
 		{
-			if (_graphMatrix[i][j] != 0 && _graphMatrix[i][j] != INT_MAX)
+			if (_graphMatrix[i][j] != 0 && _graphMatrix[i][j] != 0)
 			{
 				std::cout << std::setw(3) << " : " << std::setw(3) << _graphMatrix[i][j];
 			}
