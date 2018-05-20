@@ -107,28 +107,7 @@ void GGenerator::generateGraph(int verticeAmount, float density, bool isDirected
 	}
 
 	graph_file.close();
-
-	std::cout << "Otrzymany graf: " << std::endl << std::endl;
-	std::cout << std::setw(4) << "  ";
-	for (int i = 0; i < verticeAmount; i++)
-	{
-		std::cout << std::setw(3) << " | " << std::setw(3) << i;
-	}
-	std::cout << std::setw(3) << " | " << std::endl;
-	for (int i = 0; i < verticeAmount; i++)
-	{
-		std::cout << i << std::setw(3) << "|";
-		for (int j = 0; j < verticeAmount; j++)
-		{
-			if (graphMatrix[i][j] != INF)
-			{
-				std::cout << std::setw(3) << " : " << std::setw(3) << graphMatrix[i][j];
-			}
-			else std::cout << std::setw(3) << " : " << std::setw(3) << "---";
-		}
-		std::cout << std::setw(3) << " : " << std::endl;
-	}
-
+	std::cout << "OK!"<<std::endl;
 }
 
 GGenerator::GGenerator()

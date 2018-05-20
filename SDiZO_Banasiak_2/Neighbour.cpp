@@ -28,7 +28,6 @@ Neighbour::Neighbour()
 
 Neighbour::~Neighbour()
 {
-
 }
 
 bool Neighbour::operator< (const Neighbour & right)

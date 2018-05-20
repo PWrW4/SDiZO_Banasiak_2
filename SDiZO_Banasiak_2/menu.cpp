@@ -23,12 +23,12 @@ void menu::mainMenu()
 		case 1:
 			std::cout << "Podaj nazwe pliku"<<std::endl;
 			std::cin >> fname;
-			std::cout << "Graf skierowany? 1-tak, 0-nie";
+			std::cout << "Graf skierowany? 1-tak, 0-nie" << std::endl;
 			std::cin >> directed;
 			_graph->loadFromFile(fname, directed);
 			break;
 		case 2:
-			std::cout << "Podaj: ilosc wierzcholkow, wypelnienie (w %), skierowany? 1-tak, 0-nie,rozmiar kosztow, najmniejsza wartosc kosztow, nazwe pliku." <<std::endl;
+			std::cout << "Podaj: ilosc wierzcholkow, wypelnienie (w %), skierowany? (1-tak, 0-nie),rozmiar kosztow, najmniejsza wartosc kosztow, nazwe pliku." <<std::endl;
 			std::cin >> verticle;
 			std::cin >> density;
 			std::cin >> directed;
@@ -36,6 +36,7 @@ void menu::mainMenu()
 			std::cin >> startVal;
 			std::cin >> fname;
 			GGenerator::generateGraph(verticle, density, directed, rangeVal, startVal, fname);
+			_graph->loadFromFile(fname+".txt", directed);
 			break;
 		case 3:
 			std::cout << "1. Listowo \n2. Macierzowo" <<std::endl;

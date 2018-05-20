@@ -96,6 +96,18 @@ bool Graph::loadFromFile(std::string fileName, bool isDirected)
 		file.close();
 
 		//Lista----------------------------------------------------------------------------------------------------
+		
+		//Czyszczenie listy przy wielokrotnym wczytywaniu
+		for (int i = 0; i < _graphList.size(); i++)
+		{
+			std::list<Neighbour*>::iterator start,end;
+
+			start = _graphList[i].begin();
+			end = _graphList[i].end();
+			
+			_graphList[i].erase(start, end);
+		}
+
 		file.open(fileName, std::ios::in);
 
 		int edge[3]; //Informacje o krawêdzi do pêtli edge[0] - wierzcho³ek pocz¹tkowy, edge[1] - koñcowy, edge[2] - waga
@@ -152,7 +164,7 @@ void Graph::printMatrix()
 
 
 	std::cout << std::setw(4) << "  ";
-	for (int i = 0; i < verticeAmount; i++)
+	for (int i = 0; i < edgeAmount; i++)
 	{
 		std::cout << std::setw(3) << " | " << std::setw(3) << i;
 	}
@@ -160,7 +172,7 @@ void Graph::printMatrix()
 	for (int i = 0; i < verticeAmount; i++)
 	{
 		std::cout << i << std::setw(3) << "|";
-		for (int j = 0; j < verticeAmount; j++)
+		for (int j = 0; j < edgeAmount; j++)
 		{
 			if (_graphMatrix[i][j] != 0 && _graphMatrix[i][j] != INT_MAX)
 			{
@@ -175,7 +187,7 @@ void Graph::printMatrix()
 void Graph::printList()
 {
 	std::cout << " Wierzcholek:" << " S - Sasiad W - Waga." << std::endl;
-	typename std::list<Neighbour*>::const_iterator j;
+	std::list<Neighbour*>::const_iterator j;
 	for (int i = 0; i < verticeAmount; i++)
 	{
 		std::cout << i << ": ";
