@@ -147,12 +147,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GGenerator.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="Neighbour.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GGenerator.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Neighbour.cpp" />
     <ClCompile Include="SDiZO_Banasiak_2.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
