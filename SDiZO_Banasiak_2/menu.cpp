@@ -28,7 +28,7 @@ void menu::mainMenu()
 			_graph->loadFromFile(fname, directed);
 			break;
 		case 2:
-			std::cout << "Podaj: ilosc wierzcholkow, wypelnienie (0,6), skierowany? 1-tak, 0-nie,rozmiar kosztow, najmniejsza wartosc kosztow, nazwe pliku." <<std::endl;
+			std::cout << "Podaj: ilosc wierzcholkow, wypelnienie (w %), skierowany? 1-tak, 0-nie,rozmiar kosztow, najmniejsza wartosc kosztow, nazwe pliku." <<std::endl;
 			std::cin >> verticle;
 			std::cin >> density;
 			std::cin >> directed;

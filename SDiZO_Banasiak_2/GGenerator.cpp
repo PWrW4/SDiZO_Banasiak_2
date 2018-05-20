@@ -27,12 +27,10 @@ void GGenerator::generateGraph(int verticeAmount, float density, bool isDirected
 	int v2;
 	int value;
 	int counter = 0;
-	float wanted = (density / 100)*(verticeAmount * verticeAmount);
-	int begin = 0;
+	float wanted = (density / 100)*((verticeAmount*verticeAmount) - verticeAmount);
 
 	v1 = (rand() % freeVertice.size()) + 0;
 	connectedVertice.push_back(freeVertice[v1]);
-	begin = freeVertice[v1];
 	freeVertice.erase(freeVertice.begin() + v1);
 
 
