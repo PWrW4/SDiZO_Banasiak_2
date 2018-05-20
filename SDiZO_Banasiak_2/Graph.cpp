@@ -50,14 +50,14 @@ bool Graph::loadFromFile(std::string fileName, bool isDirected)
 		_graphMatrix = new int *[verticeAmount];	//Przydzielam pamiêæ na wiersze
 		for (int i = 0; i < verticeAmount; i++)
 		{
-			_graphMatrix[i] = new int[verticeAmount];
+			_graphMatrix[i] = new int[edgeAmount];
 		}
 
 		for (int i = 0; i < verticeAmount; i++)
 		{
-			for (int j = 0; j < verticeAmount; j++)
+			for (int j = 0; j < edgeAmount; j++)
 			{
-				_graphMatrix[i][j] = INT_MAX;	//Wype³niam macierz umown¹ nieskoñczonoœci¹
+				_graphMatrix[i][j] = INT_MAX;	//wypelniam macierz nieskonczonoscia
 											
 			}
 		}
@@ -77,11 +77,17 @@ bool Graph::loadFromFile(std::string fileName, bool isDirected)
 				return false;
 			}
 
-			_graphMatrix[tempVertex1][tempVertex2] = weight;
 
-			if (!isDirected)
+			_graphMatrix[tempVertex1][i] = weight;
+			
+
+			if (isDirected)
 			{
-				_graphMatrix[tempVertex2][tempVertex1] = weight;
+				_graphMatrix[tempVertex2][i] = (-1)*weight;
+			}
+			else
+			{
+				_graphMatrix[tempVertex2][i] = weight;
 			}
 
 			tempVertex1 = 0; tempVertex2 = 0; weight = 0;
