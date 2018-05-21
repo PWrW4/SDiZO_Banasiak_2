@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Neighbour.h"
 
-void Prim::PrimSerch_Matrix(Graph * _graph)
+void Prim::PrimSerch_Matrix(Graph * _graph, int print)
 {
 	if (_graph == nullptr)
 	{
@@ -67,20 +67,22 @@ void Prim::PrimSerch_Matrix(Graph * _graph)
 	}
 	while (edgeDones.size()!=_graph->getVerticeAmount());
 	
-	std::cout << "Wynik:" << std::endl;
-	
-	for (int i=0;i<edgeFolowing.size();i++)
+	if (print)
 	{
-		std::cout << edgeDones[i + 1] << "-";
-		std::cout << edgeFolowing[i] << std::endl;
+		std::cout << "Wynik:" << std::endl;
+
+		for (int i = 0; i<edgeFolowing.size(); i++)
+		{
+			std::cout << edgeDones[i + 1] << "-";
+			std::cout << edgeFolowing[i] << std::endl;
+		}
+
+		std::cout << std::endl;
+		std::cout << std::endl;
 	}
-
-
-	std::cout << std::endl;
-	std::cout << std::endl;
 }
 
-void Prim::PrimSerch_List(Graph * _graph)
+void Prim::PrimSerch_List(Graph * _graph, int print)
 {
 
 	if (_graph == nullptr)
@@ -145,16 +147,20 @@ void Prim::PrimSerch_List(Graph * _graph)
 		edgeDones.push_back(edgeD);
 	} while (edgeDones.size() != _graph->getVerticeAmount());
 
-	std::cout << "Wynik:" << std::endl;
-
-	for (int i = 0; i<edgeFolowing.size(); i++)
+	if (print)
 	{
-		std::cout << edgeDones[i+1] << "-";
-		std::cout << edgeFolowing[i] << std::endl;
+		std::cout << "Wynik:" << std::endl;
+
+		for (int i = 0; i<edgeFolowing.size(); i++)
+		{
+			std::cout << edgeDones[i + 1] << "-";
+			std::cout << edgeFolowing[i] << std::endl;
+		}
+
+		std::cout << std::endl;
+		std::cout << std::endl;
 	}
 
-	std::cout << std::endl;
-	std::cout << std::endl;
 }
 
 Prim::Prim()

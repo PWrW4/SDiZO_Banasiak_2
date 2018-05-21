@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Prim.h"
 #include "Dijkstra.h"
+#include <ctime>
 
 
 void menu::mainMenu()
@@ -62,10 +63,10 @@ void menu::mainMenu()
 			switch (decision)
 			{
 			case 1:
-				Prim::PrimSerch_List(_graph);
+				Prim::PrimSerch_List(_graph,1);
 				break;
 			case 2:
-				Prim::PrimSerch_Matrix(_graph);
+				Prim::PrimSerch_Matrix(_graph,1);
 				break;
 			default:
 				std::cout << "zly wybor xD"<<std::endl;
@@ -75,7 +76,8 @@ void menu::mainMenu()
 		case 5:
 			std::cout << "1. Listowo \n2. Macierzowo" << std::endl;
 			std::cin >> decision;
-			startVal = 0;
+			std::cout << "Podaj startowy wierzcholek" << std::endl;
+			std::cin >> startVal;
 			switch (decision)
 			{
 			case 1:
@@ -88,6 +90,9 @@ void menu::mainMenu()
 				std::cout << "zly wybor xD" << std::endl;
 				break;
 			}
+			break;
+		case 6:
+			srand(time(NULL));
 			break;
 		default:
 			std::cout << "zly wybor xD" << std::endl;
