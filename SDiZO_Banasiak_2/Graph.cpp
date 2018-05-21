@@ -34,6 +34,11 @@ std::vector<std::list<class Neighbour*>> Graph::getList()
 	return _graphList;
 }
 
+std::vector<std::list<class Neighbour*>> * Graph::getListP()
+{
+	return &_graphList;
+}
+
 bool Graph::loadFromFile(std::string fileName, bool isDirected)
 {
 	//Macierz------------------------------------------------------------------------------------------------------------
@@ -195,7 +200,7 @@ void Graph::printList()
 
 		for (j = _graphList[i].begin(); j != _graphList[i].end();)
 		{
-			std::cout << *j << " || ";
+			(*j)->print();
 			++j;
 		}
 		std::cout << std::endl;

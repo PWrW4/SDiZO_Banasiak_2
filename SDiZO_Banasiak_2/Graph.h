@@ -20,6 +20,7 @@ public:
 	int getEdgeAmount();
 	int getVerticeAmount();
 	int getWeight(int vertex1, int vertex2);
+	std::vector<std::list<class Neighbour*>> * getListP();
 	std::vector<std::list<class Neighbour*>> getList();
 
 	bool loadFromFile(std::string fileName, bool isDirected);

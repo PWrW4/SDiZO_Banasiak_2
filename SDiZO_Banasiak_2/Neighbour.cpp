@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Neighbour.h"
 #include <iostream>
+#include <string>
 
 
 int Neighbour::getWeight()
@@ -30,29 +31,10 @@ Neighbour::~Neighbour()
 {
 }
 
-bool Neighbour::operator< (const Neighbour & right)
-{
-	return weight > right.weight;
-}
+
 
 void Neighbour::print()
 {
-	std::cout << end << " | " << weight << " | ";
+	std::cout << "S: [" << getEnd() << "] W: [" << getWeight() << "]" << " || ";
 }
 
-bool Neighbour::operator==(const Neighbour & right)
-{
-	if (end == right.end)
-	{
-		return true;
-	}
-	return false;
-}
-
-std::ostream& operator<< (std::ostream &out, const Neighbour *n)
-{
-
-
-	out << "S: [" << n->getEnd() << "] W: [" << n->getWeight() << "]";
-	return out;
-}

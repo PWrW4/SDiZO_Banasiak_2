@@ -1,5 +1,6 @@
 #pragma once
 #include <ostream>
+#include <string>
 
 class Neighbour
 {
@@ -12,9 +13,6 @@ public:
 	Neighbour(int weight, int end);
 	Neighbour();
 	~Neighbour();
-	bool operator< (const Neighbour & right);
 	void print();
-	friend std::ostream& operator<< (std::ostream&, const Neighbour*);
-	bool operator== (const Neighbour &right);
 };
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Prim.h"
 #include <iostream>
-
+#include "Neighbour.h"
 
 void Prim::PrimSerch_Matrix(Graph * _graph)
 {
@@ -95,38 +95,35 @@ void Prim::PrimSerch_List(Graph * _graph)
 
 		for (int curr_edge : edgeDones)
 		{
-			std::list<Neighbour*>::iterator j;
-
-			for (j = _graph->getList()[curr_edge].begin() ; j = _graph->getList()[curr_edge];)
+			std::vector<std::list<class Neighbour*>>  tmpList = _graph->getList();
+			if (_graph->getList()[curr_edge].size() > 0)
 			{
-				if (_graph->getList()[curr_edge][i]>0)
+				std::list<Neighbour*>::iterator j;
+				for (j = tmpList[curr_edge].begin(); j != tmpList[curr_edge].end();)
 				{
-					if (_graph->getGraphMatrix()[curr_edge][i]<lowest_val)
-					{
-						for (int y = 0; y<_graph->getVerticeAmount(); y++)
-						{
-							if (_graph->getGraphMatrix()[y][i] != 0 && y != curr_edge)
-							{
-								bool canAdd = true;
-								for (int done : edgeDones)
-								{
-									if (done == y)
-									{
-										canAdd = false;
-									}
-								}
-								if (canAdd)
-								{
-									valToAdd = y;
-									lowest_val = _graph->getGraphMatrix()[y][i];
-								}
 
+					if ((*j)->getWeight() < lowest_val)
+					{
+						
+						bool canAdd = true;
+						for (int done : edgeDones)
+						{
+							if (done == (*j)->getEnd())
+							{
+								canAdd = false;
 							}
 						}
+						if (canAdd)
+						{
+							valToAdd = (*j)->getEnd();
+							lowest_val = (*j)->getWeight();
+						}					
 
 					}
+
+					++j;
+
 				}
-				j++;
 			}
 		}
 
