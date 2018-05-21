@@ -79,10 +79,10 @@ void menu::mainMenu()
 			switch (decision)
 			{
 			case 1:
-				Dijkstra::Dijkstra_List(_graph,startVal);
+				Dijkstra::Dijkstra_List(_graph,startVal,1);
 				break;
 			case 2:
-				Dijkstra::Dijkstra_Matrix(_graph, startVal);
+				Dijkstra::Dijkstra_Matrix(_graph, startVal,1);
 				break;
 			default:
 				std::cout << "zly wybor xD" << std::endl;

@@ -83,6 +83,11 @@ void Prim::PrimSerch_Matrix(Graph * _graph)
 void Prim::PrimSerch_List(Graph * _graph)
 {
 
+	if (_graph == nullptr)
+	{
+		return;
+	}
+
 	if (_graph->getVerticeAmount() <= 0)
 	{
 		return;
@@ -94,14 +99,14 @@ void Prim::PrimSerch_List(Graph * _graph)
 	int edgeD = 0;
 	edgeDones.push_back(0);
 	int valToAdd;
-	
+	std::vector<std::list<class Neighbour*>>  tmpList = _graph->getList();
+
 	do
 	{
 		int lowest_val = INT32_MAX;
 
 		for (int curr_edge : edgeDones)
 		{
-			std::vector<std::list<class Neighbour*>>  tmpList = _graph->getList();
 			if (_graph->getList()[curr_edge].size() > 0)
 			{
 				std::list<Neighbour*>::iterator j;
