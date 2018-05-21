@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="GGenerator.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="menu.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dijkstra.cpp" />
     <ClCompile Include="GGenerator.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="menu.cpp" />

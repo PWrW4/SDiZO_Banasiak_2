@@ -2,6 +2,7 @@
 #include "menu.h"
 #include <iostream>
 #include "Prim.h"
+#include "Dijkstra.h"
 
 
 void menu::mainMenu()
@@ -50,7 +51,7 @@ void menu::mainMenu()
 				_graph->printMatrix();
 				break;
 			default:
-				std::cout << "zly wybor xD";
+				std::cout << "zly wybor xD" << std::endl;
 				break;
 			}
 			
@@ -67,14 +68,29 @@ void menu::mainMenu()
 				Prim::PrimSerch_Matrix(_graph);
 				break;
 			default:
-				std::cout << "zly wybor xD";
+				std::cout << "zly wybor xD"<<std::endl;
 				break;
 			}
 			break;
 		case 5:
+			std::cout << "1. Listowo \n2. Macierzowo" << std::endl;
+			std::cin >> decision;
+			startVal = 0;
+			switch (decision)
+			{
+			case 1:
+				Dijkstra::Dijkstra_List(_graph,startVal);
+				break;
+			case 2:
+				Dijkstra::Dijkstra_Matrix(_graph, startVal);
+				break;
+			default:
+				std::cout << "zly wybor xD" << std::endl;
+				break;
+			}
 			break;
 		default:
-			std::cout << "zly wybor xD";
+			std::cout << "zly wybor xD" << std::endl;
 			break;
 		}
 	}
