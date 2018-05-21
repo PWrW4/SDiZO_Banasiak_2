@@ -72,7 +72,7 @@ void Dijkstra::Dijkstra_Matrix(Graph * _graph, int vStart,int print)
 
 
 	}
-	while (Q.size() != 0);
+	while (Q.size() != 0 && QtoS.size() != 0);
 
 	if (print)
 	{
@@ -155,7 +155,7 @@ void Dijkstra::Dijkstra_List(Graph * _graph, int vStart, int print)
 
 
 
-	} while (Q.size() != 0);
+	} while (Q.size() != 0 && QtoS.size() != 0);
 
 	if (print)
 	{
