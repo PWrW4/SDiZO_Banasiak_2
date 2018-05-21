@@ -37,8 +37,10 @@ void menu::mainMenu()
 			std::cin >> verticle;
 			std::cin >> density;
 			std::cin >> directed;
-			std::cin >> rangeVal;
-			std::cin >> startVal;
+//			std::cin >> rangeVal;
+//			std::cin >> startVal;
+			rangeVal = 10;
+			startVal = 1;
 			std::cin >> fname;
 			GGenerator::generateGraph(verticle, density, directed, rangeVal, startVal, fname);
 			_graph->loadFromFile(fname+".txt", directed);
@@ -95,11 +97,11 @@ void menu::mainMenu()
 			}
 			break;
 		case 6:
+			List = 0;
+			Matrix = 0;
 			srand(time(NULL));
-
-
-
 			std::cout << "1. Prim \n2. Dijkstra" << std::endl;
+			std::cin >> decision;
 			switch (decision)
 			{
 			case 1:
@@ -131,7 +133,7 @@ void menu::mainMenu()
 				break;
 			}
 
-			std::cout << std::endl<<"List: "<<List<<std::endl<<"Matrix: "<<Matrix<<std::endl;
+			std::cout << std::endl<<"List: "<<List/100<<std::endl<<"Matrix: "<<Matrix/100<<std::endl;
 
 			break;
 		default:
