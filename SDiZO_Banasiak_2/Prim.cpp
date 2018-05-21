@@ -17,8 +17,9 @@ void Prim::PrimSerch_Matrix(Graph * _graph)
 	
 
 	std::vector<int> edgeDones;
-	int currentVerticle = 0;
-	edgeDones.push_back(0);	
+	std::vector<int> edgeFolowing;
+	int edgeD = 0;
+	edgeDones.push_back(0);
 	int valToAdd;
 	do
 	{
@@ -46,7 +47,8 @@ void Prim::PrimSerch_Matrix(Graph * _graph)
 								}
 								if (canAdd)
 								{
-									valToAdd = y;
+									edgeD = y;
+									valToAdd = curr_edge;
 									lowest_val = _graph->getGraphMatrix()[y][i];
 								}
 
@@ -60,16 +62,19 @@ void Prim::PrimSerch_Matrix(Graph * _graph)
 
 
 
-		edgeDones.push_back(valToAdd);
+		edgeDones.push_back(edgeD);
+		edgeFolowing.push_back(valToAdd);
 	}
 	while (edgeDones.size()!=_graph->getVerticeAmount());
 	
 	std::cout << "Wynik:" << std::endl;
 	
-	for (int done : edgeDones)
-	{		
-		std::cout << done <<" ";
+	for (int i=0;i<edgeFolowing.size();i++)
+	{
+		std::cout << edgeDones[i + 1] << "-";
+		std::cout << edgeFolowing[i] << std::endl;
 	}
+
 
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -85,7 +90,8 @@ void Prim::PrimSerch_List(Graph * _graph)
 
 
 	std::vector<int> edgeDones;
-	int currentVerticle = 0;
+	std::vector<int> edgeFolowing;
+	int edgeD = 0;
 	edgeDones.push_back(0);
 	int valToAdd;
 	
@@ -115,7 +121,8 @@ void Prim::PrimSerch_List(Graph * _graph)
 						}
 						if (canAdd)
 						{
-							valToAdd = (*j)->getEnd();
+							valToAdd = curr_edge;
+							edgeD = (*j)->getEnd();
 							lowest_val = (*j)->getWeight();
 						}					
 
@@ -129,14 +136,16 @@ void Prim::PrimSerch_List(Graph * _graph)
 
 
 
-		edgeDones.push_back(valToAdd);
+		edgeFolowing.push_back(valToAdd);
+		edgeDones.push_back(edgeD);
 	} while (edgeDones.size() != _graph->getVerticeAmount());
 
 	std::cout << "Wynik:" << std::endl;
 
-	for (int done : edgeDones)
+	for (int i = 0; i<edgeFolowing.size(); i++)
 	{
-		std::cout << done << " ";
+		std::cout << edgeDones[i+1] << "-";
+		std::cout << edgeFolowing[i] << std::endl;
 	}
 
 	std::cout << std::endl;
