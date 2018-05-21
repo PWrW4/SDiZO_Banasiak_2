@@ -16,6 +16,8 @@ void menu::mainMenu()
 	int rangeVal = 1;
 	int startVal = 1;
 	std::string fname = "";
+	double List = 0;
+	double Matrix = 0;
 
 	do
 	{
@@ -95,8 +97,7 @@ void menu::mainMenu()
 		case 6:
 			srand(time(NULL));
 
-			double List = 0;
-			double Matrix = 0;
+
 
 			std::cout << "1. Prim \n2. Dijkstra" << std::endl;
 			switch (decision)
