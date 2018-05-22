@@ -17,6 +17,11 @@ void Dijkstra::Dijkstra_Matrix(Graph * _graph, int vStart,int print)
 		return;
 	}
 
+	if (vStart>_graph->getVerticeAmount())
+	{
+		return;
+	}
+
 	std::vector<int> S;
 	std::vector<int> Q;
 	std::vector<int> QtoS;
@@ -103,6 +108,11 @@ void Dijkstra::Dijkstra_List(Graph * _graph, int vStart, int print)
 	}
 
 	if (_graph->getVerticeAmount() <= 0)
+	{
+		return;
+	}
+
+	if (vStart>_graph->getVerticeAmount())
 	{
 		return;
 	}
