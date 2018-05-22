@@ -105,7 +105,7 @@ void menu::mainMenu()
 			switch (decision)
 			{
 			case 1:
-				for (int i=0;i<10;i++)
+				for (int i=0;i<100;i++)
 				{
 					StartCounter();
 					Prim::PrimSerch_List(_graph, 0);
@@ -117,7 +117,7 @@ void menu::mainMenu()
 				
 				break;
 			case 2:
-				for (int i = 0; i<10; i++)
+				for (int i = 0; i<100; i++)
 				{
 					startVal = rand() % _graph->getVerticeAmount();
 					StartCounter();
@@ -133,7 +133,7 @@ void menu::mainMenu()
 				break;
 			}
 
-			std::cout << std::endl<<"List: "<<List/10<<std::endl<<"Matrix: "<<Matrix/10<<std::endl;
+			std::cout << std::endl<<"List: "<<List/100<<std::endl<<"Matrix: "<<Matrix/100<<std::endl;
 
 			break;
 		default:
